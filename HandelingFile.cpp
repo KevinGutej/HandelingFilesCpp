@@ -6,6 +6,29 @@
 
 using namespace std;
 
+float randomNumber() {
+	float randomNum = rand() % 100001;
+  return randomNum;
+}
+
+void creatingFile(string fileName)  {
+	ofstream file(fileName.c_str());
+  file.close();
+}
+
+void randomFloatNumbers(string fileName) {
+	int i;
+	float divisor = 100;
+  ofstream file(fileName.c_str(), ios::app);
+	for(i=0; i <= 9; i++)
+  {
+  	float randomFloatNumber = rand() / divisor;
+    file << " " << randomFloatNumber;
+    
+  }
+  //995 -> 9.95
+    file.close();
+}
 
 int main() {
 	string fileName;
