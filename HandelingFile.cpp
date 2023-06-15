@@ -16,6 +16,31 @@ void creatingFile(string fileName)  {
   file.close();
 }
 
+float calculatingAverage(string fileName, float randomFloatNumber) {
+    //ofstream file(fileName.c_str());
+     if (file.is_open()) {
+        double num;
+        while (file >> num && randomFloatNumber.size() < 10) {
+            randomFloatNumber.push_back(num);
+    }
+    file.close();
+    } else {
+        cout << "Error: Unable to open or read the file " << filename;
+        return 0;
+    }
+    if (randomFloatNumber.size() < 10) {
+        cout << "Error: The file " << filename << " does not contain enough numbers";
+        return 0;
+    }
+
+    float average = 0;
+    for(i=0; i < randomFloatNumber.size(); i++) {
+        average += randomFloatNumber[i];
+        average = average / randomFloatNumber.size();
+    }
+    return average;
+}
+
 void randomFloatNumbers(string fileName) {
 	int i;
 	float divisor = 100;
@@ -24,7 +49,7 @@ void randomFloatNumbers(string fileName) {
   {
   	float randomFloatNumber = rand() / divisor;
     file << " " << randomFloatNumber;
-    
+
   }
   //995 -> 9.95
     file.close();
